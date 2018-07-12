@@ -1,0 +1,39 @@
+{
+  "name": "ips-microservice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --recursive  --timeout 35000 test/integration/*.js",
+    "start": "node application.js",
+    "unit": "./node_modules/.bin/mocha --recursive test/unit/*.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "chai-http": "^3.0.0",
+    "crypto": "^1.0.1",
+    "dateformat": "^3.0.3",
+    "express": "^4.16.2",
+    "fs": "0.0.1-security",
+    "jwt-simple": "^0.5.1",
+    "mocha": "^5.0.0",
+    "mocha-jenkins-reporter": "0.3.10",
+    "mongodb": "^2.2.33",
+    "mongoskin": "^2.1.0",
+    "nock": "^9.1.6",
+    "path": "^0.12.7",
+    "probe-mon": "0.0.9",
+    "should": "^13.2.1",
+    "soap-ntlm": "^0.6.3",
+    "soap-ntlm-2": "^0.9.4",
+    "supertest": "^3.0.0",
+    "underscore": "^1.8.3",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "superagent": "^3.8.2"
+  }
+}

@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Template
+labels:
+  template: ips-microservice
+metadata:
+  name: ips-microservice
+objects:
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    labels:
+      build: ${NAME}
+    name: ${NAME}
+- apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    labels:
+      build: ${NAME}
+    name: ${NAME}
+  spec:
+    output:
+      to:
+        kind: ImageStreamTag
+        name: '${NAME}:${IS_TAG}'
+    postCommit: {}
+    resources: {}
+    runPolicy: Serial
+    source:
+      binary: {}
+      type: Binary
+    strategy:
+      dockerStrategy:
+        from:
+        from:
+          kind: ImageStreamTag
+          namespace: openshift
+          name: 'nodejs:latest'
+        dockerfilePath: Dockerfile
+      type: Docker
+    triggers: []
+parameters:
+  - name: "NAME"
+    required: true
+    value: ips-microservice
+  - name: "IS_TAG"
+    required: true
